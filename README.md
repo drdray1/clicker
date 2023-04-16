@@ -1,3 +1,11 @@
+# Colors (Complementary)
+- A #9E743E
+- B #FFD296
+- C #EBB773
+- D #2E779E
+- E #73C1EB
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

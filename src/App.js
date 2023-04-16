@@ -1,11 +1,19 @@
 import './App.css';
 
+import Box from "@mui/material/Box";
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+import ClickyButton from './FoxComponents/ClickyButton';
+import Boop from './FoxComponents/Boop';
+
 import { useState } from 'react';
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(95950);
 
-  function handleClick() {
+  function increment() {
     setCount(count + 1);
   }
 
@@ -13,30 +21,41 @@ export default function App() {
     setCount(0);
   }
 
+
+  // Center ClickyButton in the middle of the page
   return (
     <div>
-      <h1 className='text-3xl font-bold'>Click it</h1>
-      {/* use tailwind to style the button */}
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      >
+        <Stack direction="column" justifyContent="space-evenly" alignItems="center" spacing={4}>
 
-      <MyButton className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' count={count} onClick={handleClick}/>
-      {/* <MyButton count={count} onClick={handleClick} /> */}
-      <MyResetButton onClick={handleReset} />
+          <Boop rotation={20} timing={200}>
+            <Typography variant="h1">
+              {count}
+            </Typography>
+          </Boop>
+
+          <ClickyButton increment={increment}/>
+
+          <Boop rotation={10} timing={100}>
+            <MyResetButton onClick={handleReset}/>
+          </Boop>
+        </Stack>
+      </Box>
     </div>
-  );
-}
-
-function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick} type="button" class="animate-bounce inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400" id="mobile-menu-button" aria-expanded="false" aria-haspopup="true">
-      Clicked {count} times
-    </button>
   );
 }
 
 function MyResetButton({ onClick }) {
   return (
-    <button onClick={onClick} type="button" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400" id="mobile-menu-button" aria-expanded="false" aria-haspopup="true">
-      Reset Counter
+    <button onClick={onClick} type="button" id="mobile-menu-button" aria-expanded="false" aria-haspopup="true">
+      <Button variant="contained" size="large">
+        RESET
+      </Button>
     </button>
   );
 }
