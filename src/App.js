@@ -11,7 +11,7 @@ import Boop from './FoxComponents/Boop';
 import { useState } from 'react';
 
 export default function App() {
-  const [count, setCount] = useState(95950);
+  const [count, setCount] = useState(0);
 
   function increment() {
     setCount(count + 1);
