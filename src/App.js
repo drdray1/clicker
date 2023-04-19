@@ -32,7 +32,6 @@ export default function App() {
         minHeight="100vh"
       >
         <Stack direction="column" justifyContent="space-evenly" alignItems="center" spacing={4}>
-
           <Boop rotation={20} timing={200}>
             <Typography variant="h1">
               {count}
@@ -52,8 +51,8 @@ export default function App() {
 
 function MyResetButton({ onClick }) {
   return (
-    <button onClick={onClick} type="button" id="mobile-menu-button" aria-expanded="false" aria-haspopup="true">
-      <Button variant="contained" size="large">
+    <button onClick={onClick} type="button" aria-expanded="false" aria-haspopup="true">
+      <Button variant="contained" size="small">
         RESET
       </Button>
     </button>

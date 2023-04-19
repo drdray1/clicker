@@ -4,34 +4,37 @@ import React from 'react';
 import { useSpring, animated } from '@react-spring/web'
 
 const ClickyButton = (props) => {
+    const startY = 7;
+    const endY = 0;
+    const bounceDuration = 100;
+
     const [springs, api] = useSpring(() => ({
-        from: { y: 5 },
+        from: { y: startY },
     }))
 
     function handleClick() {
         // make the button bounce
         api.start({
             from: {
-                y: 0,
+                y: endY,
             },
             to: {
-                y: 5,
+                y: startY,
             },
             config: {
-                duration: 100,
+                duration: bounceDuration,
             },
         })
         props.increment();
     }
 
-    // give the button 50% opacity  
     return (
         <animated.button 
             style={{
                 width: 100,
                 height: 100,
                 borderRadius: 50,
-                background: 'linear-gradient(45deg, #2E779E 30%, #73C1EB 80%)',
+                background: 'linear-gradient(5deg, #2E779E 30%, #73C1EB 70%)',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -40,7 +43,6 @@ const ClickyButton = (props) => {
                 ...springs,
             }}
         onClick={handleClick}>
-            {/* <h2>Click</h2> */}
         </animated.button>
     );
 }
